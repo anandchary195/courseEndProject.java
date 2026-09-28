@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollegeRide - Share Your Commute</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🚗 CollegeRide</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#offer-ride" class="nav-link">Offer Ride</a></li>
+                <li><a href="#find-ride" class="nav-link">Find Ride</a></li>
+                <li><a href="#rides" class="nav-link">Active Rides</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Share Your College Commute</h1>
+            <p>Connect with fellow students traveling between college and home</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('offer-ride')">Offer a Ride</button>
+                <button class="btn btn-secondary" onclick="scrollToSection('find-ride')">Find a Ride</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Offer Ride Section -->
+        <section id="offer-ride" class="section">
+            <h2>📍 Offer a Ride</h2>
+            <div class="form-container">
+                <form id="offerRideForm" class="ride-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="riderName">Full Name *</label>
+                            <input type="text" id="riderName" name="riderName" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="riderBranch">Branch/Department *</label>
+                            <select id="riderBranch" name="riderBranch" required>
+                                <option value="">Select Branch</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Mechanical">Mechanical</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Civil">Civil</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="riderPhone">Phone Number *</label>
+                            <input type="tel" id="riderPhone" name="riderPhone" required placeholder="9876543210" pattern="[0-9]{10}">
+                        </div>
+                        <div class="form-group">
+                            <label for="riderEndLocation">Destination/End Location *</label>
+                            <input type="text" id="riderEndLocation" name="riderEndLocation" required placeholder="e.g., Home, Airport, City Center">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="riderStartTime">Departure Time *</label>
+                            <input type="time" id="riderStartTime" name="riderStartTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="riderWaitingTime">How long can you wait? (minutes) *</label>
+                            <input type="number" id="riderWaitingTime" name="riderWaitingTime" required min="5" max="120" placeholder="30">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="riderSeats">Available Seats *</label>
+                            <input type="number" id="riderSeats" name="riderSeats" required min="1" max="5" placeholder="2">
+                        </div>
+                        <div class="form-group">
+                            <label for="riderFare">Total Ride Fare (₹) *</label>
+                            <input type="number" id="riderFare" name="riderFare" required min="10" step="10" placeholder="500">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="riderNotes">Additional Notes (Optional)</label>
+                        <textarea id="riderNotes" name="riderNotes" placeholder="e.g., Will pick up from main gate..." rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Post Your Ride</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Find Ride Section -->
+        <section id="find-ride" class="section">
+            <h2>🔍 Find a Ride</h2>
+            <div class="form-container">
+                <form id="findRideForm" class="ride-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="passengerName">Full Name *</label>
+                            <input type="text" id="passengerName" name="passengerName" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="passengerBranch">Branch/Department *</label>
+                            <select id="passengerBranch" name="passengerBranch" required>
+                                <option value="">Select Branch</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Mechanical">Mechanical</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Civil">Civil</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="passengerPhone">Phone Number *</label>
+                            <input type="tel" id="passengerPhone" name="passengerPhone" required placeholder="9876543210" pattern="[0-9]{10}">
+                        </div>
+                        <div class="form-group">
+                            <label for="passengerDropLocation">Drop Location *</label>
+                            <input type="text" id="passengerDropLocation" name="passengerDropLocation" required placeholder="e.g., Home, Bus Stand">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="passengerTime">Preferred Departure Time *</label>
+                            <input type="time" id="passengerTime" name="passengerTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="passengerWaitingTime">Maximum Waiting Time (minutes) *</label>
+                            <input type="number" id="passengerWaitingTime" name="passengerWaitingTime" required min="5" max="120" placeholder="30">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="passengerBudget">Max Budget (₹) *</label>
+                        <input type="number" id="passengerBudget" name="passengerBudget" required min="10" step="10" placeholder="300">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Search for Rides</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Active Rides Section -->
+        <section id="rides" class="section">
+            <h2>🚗 Active Rides</h2>
+            <div class="rides-container" id="ridesContainer">
+                <!-- Rides will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2>About CollegeRide</h2>
+            <div class="about-content">
+                <p>CollegeRide is a platform designed to help college students share rides between campus and home, promoting cost-effective and eco-friendly commuting.</p>
+                
+                <h3>Key Features:</h3>
+                <ul class="features-list">
+                    <li>✓ Easy ride posting and searching</li>
+                    <li>✓ Secure contact information sharing</li>
+                    <li>✓ Fair fare splitting among passengers</li>
+                    <li>✓ Flexible waiting times and schedules</li>
+                    <li>✓ Branch/Department-based filtering</li>
+                    <li>✓ Real-time ride availability</li>
+                </ul>
+
+                <h3>How It Works:</h3>
+                <ol class="steps-list">
+                    <li><strong>Riders:</strong> Post your upcoming commute with destination, time, available seats, and fare</li>
+                    <li><strong>Passengers:</strong> Search for rides matching your time, location, and budget</li>
+                    <li><strong>Connect:</strong> View rider details and coordinate the pickup</li>
+                    <li><strong>Share:</strong> Split the fare fairly among all passengers</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 CollegeRide. Safe, Affordable, Eco-Friendly Commuting for Students.</p>
+        <p>Travel Smart. Save Money. Help Others. 🌍</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
